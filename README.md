@@ -47,6 +47,6 @@ This operations will respond with a JSON that contains the user's token.
 
 - Sort prices -> `GET http://localhost:3000/apiv1/advertisements?price=QUANTITY&token=TOKEN 10-50 10- -50`
 
-- Get all current tags -> `GET http://localhost:3000/apiv1/advertisements/tags&token=TOKEN`
+- Get all current tags -> `GET http://localhost:3000/apiv1/advertisements/tags`
 
 
