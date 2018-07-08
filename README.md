@@ -2,15 +2,15 @@
 
 Nodepop is an API made with Node.js
 
-## Installation
+## 📄 Installation
 
 To install this API follow the next sections
 
-### Dependencies
+### 📦 Dependencies
 
 - Run `$ npm install` for installing all API's dependencies.
 
-### Database
+### 🗄 Database
 
 - Run `$ mongod` to start a MongoDB instance in your machine.
 
@@ -18,7 +18,7 @@ To install this API follow the next sections
 
 - Use `$ npm run dev` if you are a developer and you want to test the API.
 
-## Quality Assurance
+## 🔥 Quality Assurance
 
 This API has passed ESLint code quality linting.
 The rules for code linting applied to this API are in `.eslintrc.json` file.
@@ -27,7 +27,7 @@ The rules for code linting applied to this API are in `.eslintrc.json` file.
 
 You must be logged in to make a request to this API.
 
-### Users
+### 👩 Users
 
 - Create an user account -> `POST http://localhost:3000/apiv1/users/authenticate/signup` with `{ name: YOUR_USERNAME, email: YOUR_EMAIL, key: YOUR_PASSWORD }`
 
@@ -35,7 +35,7 @@ You must be logged in to make a request to this API.
 
 This operations will respond with a JSON that contains the user's token.
 
-### Advertisements
+### 🌇 Advertisements
 
 - List all the advertisements in the DB -> `GET http://localhost:3000/apiv1/advertisements?token=TOKEN` 
 
