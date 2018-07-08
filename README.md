@@ -39,14 +39,14 @@ This operations will respond with a JSON that contains the user's token.
 
 - List all the advertisements in the DB -> `GET http://localhost:3000/apiv1/advertisements?token=TOKEN` 
 
-- Pagination -> `GET http://localhost:3000/apiv1/advertisements?start​=0&​limit​=2` 
+- Pagination -> `GET http://localhost:3000/apiv1/advertisements?start​=0&​limit​=2&token=TOKEN` 
 
-- Sort -> `GET http://localhost:3000/apiv1/advertisements?sort=FIELD` 
+- Sort -> `GET http://localhost:3000/apiv1/advertisements?sort=FIELD&token=TOKEN` 
 
-- Search by fields -> `GET http://localhost:3000/apiv1/advertisements?name=NAME price=PRICE tag=TAG isForSale=BOOL`
+- Search by fields -> `GET http://localhost:3000/apiv1/advertisements?name=NAME&token=TOKEN price=PRICE tag=TAG isForSale=BOOL`
 
-- Sort prices -> `GET http://localhost:3000/apiv1/advertisements?price=QUANTITY 10-50 10- -50`
+- Sort prices -> `GET http://localhost:3000/apiv1/advertisements?price=QUANTITY&token=TOKEN 10-50 10- -50`
 
-- Get all current tags -> `GET http://localhost:3000/apiv1/advertisements/tags`
+- Get all current tags -> `GET http://localhost:3000/apiv1/advertisements/tags&token=TOKEN`
 
 
