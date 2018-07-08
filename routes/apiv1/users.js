@@ -13,19 +13,19 @@ router.post('/authenticate/login', async (req, res, next) => {
 		const email = req.body.email;
 		const key = req.body.key;
 
-		// search for the user in the DB
-		const user = await User.findOne({ email: email }).exec();
-
 		// validate user
-		if (!user) {
+		if (!email) {
 			res.json({ success: true, message: 'Invalid credentials.' });
 			return;
 		}
 
 		// validate password
-		if (key !== user.key) {
+		if (!key) {
 			res.json({ success: true, message: 'Invalid credentials.' });
 		}
+
+		// search for the user in the DB
+		const user = await User.findOne({ email: email }).exec();
 
 		// create JWT
 		createJWT(user, next, res);
@@ -55,15 +55,20 @@ router.post('/authenticate/signup', async (req, res, next) => {
 		return;
 	}
 
-	const user = await new User({
-		name: name,
-		email: email,
-		key: key
+	const user = new User();
+	user.name = name;
+	user.email = email;
+	user.key = user.setPassword(key);
+
+	await user.save((error, insertedUser) => {
+		if (error) {
+			next(error);
+			return;
+		}
+
+		createJWT(insertedUser, next, res);
 	});
 
-	const insertedUser = await user.save();
-
-	createJWT(insertedUser, next, res);
 });
 
 // creates a JWT for a given user
