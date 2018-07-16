@@ -16,7 +16,19 @@ To install this API follow the next sections
 
 - Then, open a new terminal a run `$ npm run installDB` to load the mongoDB database.
 
+- Database location: `mongodb://localhost:27017/nodepop`. You can modify this location in `localConfig.js` file.
+
+## 🏃🏿‍ Running the API
+
+- Use `$ npm start` for starting the API.
+
+    - Use `$ npm run start-cluster` for running the API in cluster mode.
+
+OR
+
 - Use `$ npm run dev` if you are a developer and you want to test the API.
+
+    - Use `$ npm run dev-cluster` for testing cluster mode on dev.
 
 ## 🔥 Quality Assurance
 
