@@ -5,8 +5,8 @@ const crypto = require('crypto');
 
 // Define schema
 const userSchema = mongoose.Schema({
-	name: String,
-	email: { type: String, unique: true },
+	name: { type: String, index: true} ,
+	email: { type: String, unique: true, index: true },
 	key: String,
 	salt: String
 });
@@ -21,20 +21,20 @@ userSchema.methods.setPassword = function (password) {
 	this.salt = crypto.randomBytes(16).toString('hex');
 
 	// hashing user's salt and password with 1000 iterations,
-	//64 length and sha512 digest
+	// 64 length and sha512 digest
 	this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
 };
 
 // method to check entered password is correct or not
 // validPassword method checks whether the user
-//password is correct or not
+// password is correct or not
 // It takes the user password from the request 
-//and salt from user database entry
+// and salt from user database entry
 // It then hashes user password and salt
 // then checks if this generated hash is equal
-//to user's hash in the database or not
+// to user's hash in the database or not
 // if user's hash is equal to generated hash 
-//then password is correct otherwise not
+// then password is correct otherwise not
 userSchema.methods.validPassword = function (password) {
 	var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
 	return this.hash === hash;

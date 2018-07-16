@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 
 // Define schema
 const advertisementSchema = mongoose.Schema({
-	name: String,
-	isForSale: Boolean,
-	price: Number,
+	name: { type: String, index: true },
+	isForSale: { type: Boolean, index: true },
+	price: { type: Number, index: true },
 	picture: String,
-	tags: [String]
+	tags: { type: [String], index: true }
 });
 
 // static method for listing agents
