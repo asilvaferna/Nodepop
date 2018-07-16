@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "start-cluster": "node ./bin/cluster",
     "dev": "cross-env DEBUG=nodeapi:* nodemon ./bin/www",
+    "dev-cluster": "cross-env DEBUG=nodeapi:* nodemon ./bin/cluster",
     "installDB": "node ./lib/install_db.js"
   },
   "dependencies": {

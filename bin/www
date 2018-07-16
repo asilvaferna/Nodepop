@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('nodepop:server');
+var debug = require('debug')('nodeapi:server');
 var http = require('http');
 
 /**
@@ -15,40 +15,19 @@ var http = require('http');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-// cluster control
-const cluster = require('cluster');
+/**
+ * Create HTTP server.
+ */
 
-if (cluster.isMaster) {
-  // I'm master
-  const numCpus = require('os').cpus().length;
+var server = http.createServer(app);
 
-  cluster.on('listening', (worker, address) => {
-    console.log('Worker', worker.id, 'with PID', worker.process.pid, 'running on', address.port);
-  });
+/**
+ * Listen on provided port, on all network interfaces.
+ */
 
-  cluster.on('exit', (worker, code, signal) => {
-    console.log('Worker', worker.process.pid, 'is dead, running one new');
-    cluster.fork();
-  });
-
-  for (let i = 0; i < numCpus; i++) {
-    cluster.fork();
-  }
-} else {
-  /**
-  * Create HTTP server.
-  */
-
-  var server = http.createServer(app);
-
-  /**
-  * Listen on provided port, on all network interfaces.
-  */
-
-  server.listen(port);
-  server.on('error', onError);
-  server.on('listening', onListening);
-}
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
 
 /**
  * Normalize a port into a number, string, or false.
@@ -107,5 +86,5 @@ function onListening() {
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr
     : 'port ' + addr.port;
-  debug('Listening on ' + bind);
+  console.log('Listening on ' + bind);
 }
