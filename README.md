@@ -2,7 +2,7 @@
 
 Nodepop is an API made with Node.js
 
-## ☁️ Server
+## ☁️ Server
 
 Static page [52.73.28.199](http://52.73.28.199) or [adsilva.tech](http://adsilva.tech)
 
