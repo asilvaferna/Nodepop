@@ -2,6 +2,19 @@
 
 Nodepop is an API made with Node.js
 
+## ☁️ Server
+
+Static page [52.73.28.199](http://52.73.28.199) or [adsilva.tech](http://adsilva.tech)
+
+Nodepop API `http://nodepop.adsilva.tech`
+
+Use the [endpoints](#api-use-cases) referred on this markdown
+
+Static content has a custom header `X-Owner adri4silva` 
+
+Try [http://nodepop.adsilva.tech/images/ads/iphone.jpg](http://nodepop.adsilva.tech/images/ads/iphone.jpg)
+
+
 ## 📄 Installation
 
 To install this API follow the next sections
@@ -18,7 +31,7 @@ To install this API follow the next sections
 
 - Database location: `mongodb://localhost:27017/nodepop`. You can modify this location in `localConfig.js` file.
 
-## 🏃🏿‍ Running the API
+## 🏃🏿‍ Running the API
 
 - Use `$ npm start` for starting the API.
 
